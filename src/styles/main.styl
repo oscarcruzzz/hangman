@@ -1,0 +1,75 @@
+@import 'config.styl'
+*
+    list-style none
+    text-decoration: none
+body    
+    height 100vh
+    background-position: bottom
+    background-size 100%
+    background-repeat no-repeat
+    padding 0
+    margin 0
+.main-container
+    width: 100%
+    height: 100%
+    //background-color orange
+    display: grid
+    grid-template-columns: repeat(12,1fr)
+    grid-template-rows: repeat(12,1fr)
+    svg
+        grid-column: 1/4
+        grid-row: 1/13
+    h1
+        grid-column: 4/10
+        grid-row: 1/4
+        font-size: 12em
+        color: white
+    .user-data
+        grid-column: 4/9
+        grid-row 6/11       
+        form
+            height 100%            
+            label
+                display: block
+                font-family: 'Montserrat'
+                color white
+                margin: 5px
+            input, select
+                width: 70%
+                padding: 15px 10px
+                border-radius: 5px
+                border none
+                margin-bottom: 15px
+            select  
+                width: 72%
+            input
+                &:first-child                    
+                    &::before
+                        content: '😁'
+                    &::after
+                        content: '😢'
+            select
+                moz-appearance:none; /* Firefox */
+                -webkit-appearance:none; /* Safari and Chrome */
+                appearance:none;
+                
+.icons-container
+    display: flex 
+    justify-content: flex-end
+    padding: 45px
+    a, >span
+        background-color #e1e1e1
+        margin: 0 10px
+        box-shadow: 1px 5px 10px rgba(21,5,10,.3)
+    a
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 10px
+        border-radius: 10px
+        span
+            padding-left: 10px
+    >span
+        padding: 12px 15px
+        border-radius: 30px
+
