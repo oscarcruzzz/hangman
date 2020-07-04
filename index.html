@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HANGMAN | HOME</title>
   </head>
-  <style>
-    body {
-      background-image: url("./../../public/images/background.jpg");
-    }
-  </style>
   <body>
     <div class="icons-container">
       <a href="#">
@@ -20,26 +15,39 @@
       <span><img src="./public/icons/music.svg" alt="Music" /></span>
     </div>
     <div class="main-container">
-      <object
-        type="image/svg+xml"
-        data="./public/icons/hangman.svg"
-        class="logo"
-      >
-      </object>
-      <h1 class="title">HANGMAN</h1>
+      <div class="letters">
+        <span class="letter">H</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+        <span class="letter">G</span>
+        <span class="letter">M</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+      </div>
+      <div class="spaces">
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"></div>
+      </div>
       <div class="user-data">
         <form action="">
           <label for="">Name</label>
-          <input type="text" />
+          <input type="text" id="name" />
           <label for="">Theme</label>
           <select name="" id="">
-            <option value="">Cars</option>
             <option value="">Movies</option>
-            <option value="">Foot ball</option>
+            <option value="">Countries</option>
           </select>
           <label for="">Dificulty</label>
           <input type="range" name="" id="" />
         </form>
+      </div>
+      <div id="button-container">
+        <button id="button">Play</button>
       </div>
     </div>
   </body>

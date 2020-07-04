@@ -9,30 +9,39 @@ body
     background-repeat no-repeat
     padding 0
     margin 0
-.main-container
+    background main-dark
+button
+    cursor pointer
+.main-container    
     width: 100%
-    height: 100%
-    //background-color orange
-    display: grid
-    grid-template-columns: repeat(12,1fr)
-    grid-template-rows: repeat(12,1fr)
-    svg
-        grid-column: 1/4
-        grid-row: 1/13
-    h1
-        grid-column: 4/10
-        grid-row: 1/4
+    height: 85%    
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    .letters
         font-size: 12em
-        color: white
+        color: main-light
+        //sletter-spacing: 40px
+    .spaces, .letters
+        display: flex
+        width: 70%
+        justify-content: space-around
+        position: relative
+        top: -130px
+        .space
+            min-height: 5px
+            background-color main-light
+            width calc(100%/9)
     .user-data
-        grid-column: 4/9
-        grid-row 6/11       
+        width: 40%        
         form
+            text-align: center
             height 100%            
             label
                 display: block
                 font-family: 'Montserrat'
-                color white
+                color main-light
                 margin: 5px
             input, select
                 width: 70%
@@ -42,23 +51,42 @@ body
                 margin-bottom: 15px
             select  
                 width: 72%
-            input
-                &:first-child                    
-                    &::before
-                        content: '😁'
-                    &::after
-                        content: '😢'
-            select
-                moz-appearance:none; /* Firefox */
-                -webkit-appearance:none; /* Safari and Chrome */
-                appearance:none;
+            // input                
+            //     &::before
+            //         content: '😁'
+            //     &::after
+            //         content: '😢'
+            select 
+                -webkit-appearance: none;
+                -moz-appearance: none;                
+                background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='36' viewBox='0 0 36 36' width='36' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h36v36H0z' fill='none'/></svg>");
+                background-repeat: no-repeat;
+                background-position-x: 100%;
+                background-position-y: 12px;
+                border: 1px solid #dfdfdf;
+                border-radius: 2px;                
+                padding: 1rem;
+                padding-right: 2rem;
+                border-radius: 5px
+    #button-container        
+        position: absolute
+        top: 80%
+        right: 15%        
+        button
+            background main-ligt
+            border none
+            padding: 25px 55px
+            font-size: 2em
+            border-radius: 25px
+            opacity: 0
+            pointer-events: none        
                 
 .icons-container
     display: flex 
     justify-content: flex-end
     padding: 45px
     a, >span
-        background-color #e1e1e1
+        background-color main-light
         margin: 0 10px
         box-shadow: 1px 5px 10px rgba(21,5,10,.3)
     a
@@ -73,3 +101,7 @@ body
         padding: 12px 15px
         border-radius: 30px
 
+.show-button
+    opacity: 1 !important
+    pointer-events: auto !important
+    transition: all .2s ease-in
