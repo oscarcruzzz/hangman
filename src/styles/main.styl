@@ -1,7 +1,5 @@
 @import 'config.styl'
-*
-    list-style none
-    text-decoration: none
+
 body    
     height 100vh
     background-position: bottom
@@ -68,6 +66,22 @@ button
                 padding: 1rem;
                 padding-right: 2rem;
                 border-radius: 5px
+            fieldset                
+                display flex
+                justify-content: space-around
+                border:  none
+                width: 80%
+                margin: auto
+                .input-hidden 
+                    position: absolute
+                    left: -9999px
+                label
+                    span
+                        opacity: .5
+                        font-size: 3.5em
+                        cursor pointer
+                input[type=radio]:checked + label>span 
+                    opacity: 1
     #button-container        
         position: absolute
         top: 80%
@@ -81,7 +95,7 @@ button
             opacity: 0
             pointer-events: none        
                 
-.icons-container
+.top-container
     display: flex 
     justify-content: flex-end
     padding: 45px
@@ -105,3 +119,67 @@ button
     opacity: 1 !important
     pointer-events: auto !important
     transition: all .2s ease-in
+// #game-container, #game-header
+//     width: 100%
+//     height: 100%    
+
+/*
+*
+    Game view Syles
+*
+*/
+
+#top-container    
+    .game-header
+        background-color green
+        width: 100%
+        display flex
+        justify-content: space-between
+        align-items: center
+        #help
+            background-color blue
+            font-family: arial
+            font-weight: bold
+            font-size: 2em
+            background main-light            
+            width: 60px
+            height: 60px
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 35px
+            cursor: pointer
+            box-shadow: 1px 5px 10px rgba(21,5,10,.3)
+        #player-name
+            color: main-light
+            font-size: 2em
+        #time-counter
+            color: main-light
+            font-size: 2em
+#main-container
+    .game-view
+        background-color brown
+        height: 100%
+        width: 100%
+        display: grid
+        grid-template-columns: repeat(12,1fr)
+        .game-words
+            grid-column: 5/13
+            background-color orange
+            display: grid
+            grid-template-rows: 1fr 1fr
+            .word-container
+                grid-row: 1/2            
+            .letters-container
+                grid-row: 2/3
+                background-color blue
+                span
+                    color: main-light
+                    font-size: 70px
+                    padding: 5px
+                    margin: 5px 10px
+                    cursor pointer
+
+
+
+            
