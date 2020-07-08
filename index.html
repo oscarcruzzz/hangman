@@ -6,7 +6,7 @@
     <title>HANGMAN | HOME</title>
   </head>
   <body>
-    <div class="icons-container">
+    <div class="top-container" id="top-container">
       <a href="#">
         <img src="./public/icons/github.svg" alt="GitHub" /><span
           >Show Love</span
@@ -14,7 +14,7 @@
       </a>
       <span><img src="./public/icons/music.svg" alt="Music" /></span>
     </div>
-    <div class="main-container">
+    <div class="main-container" id="main-container">
       <div class="letters">
         <span class="letter">H</span>
         <span class="letter">A</span>
@@ -34,16 +34,56 @@
         <div class="space"></div>
       </div>
       <div class="user-data">
-        <form action="">
+        <form action="" id="form-options">
           <label for="">Name</label>
           <input type="text" id="name" />
           <label for="">Theme</label>
-          <select name="" id="">
-            <option value="">Movies</option>
-            <option value="">Countries</option>
+          <select name="" id="theme">
+            <option value="movies">Movies</option>
+            <option value="countries">Countries</option>
           </select>
           <label for="">Dificulty</label>
-          <input type="range" name="" id="" />
+          <fieldset>
+            <div class="option">
+              <input
+                type="radio"
+                name="level"
+                value="easy"
+                id="group-race"
+                class="input-hidden"
+                checked="checked"
+              />
+              <label for="group-race">
+                <span>😁</span>
+              </label>
+            </div>
+
+            <div class="option">
+              <input
+                type="radio"
+                name="level"
+                id="mini-gp"
+                value="medium"
+                class="input-hidden"
+              />
+              <label for="mini-gp">
+                <span>😨</span>
+              </label>
+            </div>
+
+            <div class="option">
+              <input
+                type="radio"
+                name="level"
+                value="hard"
+                id="mini-gp-5"
+                class="input-hidden"
+              />
+              <label for="mini-gp-5">
+                <span>😭</span>
+              </label>
+            </div>
+          </fieldset>
         </form>
       </div>
       <div id="button-container">
