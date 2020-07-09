@@ -14,6 +14,9 @@ const main_container = document.getElementById("main-container");
 const top_container = document.getElementById("top-container");
 const theme = document.getElementById("theme");
 const level = document.getElementsByName("level");
+const modal = document.getElementById("help-container");
+const close = document.getElementById("help-button");
+const help_text = document.getElementById("help-text");
 
 let game_main_view = gameMainView();
 let game_header_easy = gameHeaderEasy(name.value);
@@ -30,13 +33,15 @@ const showButton = () => {
 name.addEventListener("focusout", showButton);
 
 const getMovie = async () => {
-  let movie_id = Math.round(Math.random() * 10000);
+  let movie_id = Math.round(Math.random() * 1000);
   let response = await fetch(
     `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${movie_api_key}&language=es-MX`
   );
   let json = await response.json();
-  let movie = Object.entries(json);
-  let movie_title = movie[9][1];
+  let movie_title = json.title;
+  let sinopsis = json.overview;
+  let year = json.release_date;
+  setHelpMovie(year, sinopsis);
   createLines(movie_title);
 };
 
@@ -48,6 +53,9 @@ const getCountry = async () => {
   let json = await response.json();
   let country = Object.entries(json);
   let country_name = country[0][1]["name"];
+  var capital = country[0][1]["capital"];
+  var region = country[0][1]["subregion"];
+  setHelpCountry(capital, region);
   createLines(country_name);
 };
 const startTimer = (duration, display) => {
@@ -74,6 +82,26 @@ const setTimeOut = (time) => {
     display = document.getElementById("time-counter");
   startTimer(minutes, display);
 };
+
+const setHelpCountry = (capital, region) => {
+  help_text.innerHTML = `<strong>Capital:</strong>${capital}<br><strong>Region:</strong>${region}`;
+};
+
+const setHelpMovie = (year, sinopsis) => {
+  sinopsis != ""
+    ? (help_text.innerHTML = `<strong>Movie Year:</strong>${year}<br><strong>Sinopsis:</strong>${sinopsis}`)
+    : (help_text.innerHTML = `<strong>Movie Year:</strong>${year}<br><strong>Sinopsis:</strong> Sorry, this movie don't have sinopsis`);
+};
+
+const setScore = () => {
+  score = document.getElementById("score");
+  if (score.dataset.score != 0) {
+    score.innerHTML = parseInt(score.dataset.score) + 1;
+  } else {
+    score.innerHTML = score.dataset.score;
+  }
+};
+
 const gameView = () => {
   for (let i = 0, length = level.length; i < length; i++) {
     if (level[i].checked) {
@@ -94,6 +122,7 @@ const gameView = () => {
       setTimeOut(1);
       break;
   }
+  main_container.innerHTML = game_main_view;
   switch (theme.value) {
     case "countries":
       getCountry();
@@ -102,13 +131,34 @@ const gameView = () => {
       getMovie();
       break;
   }
-  main_container.innerHTML = game_main_view;
+  setScore();
+};
+
+const createLines = (letters) => {
+  const word_container = document.getElementById("word-container");
+  let arr_word = letters.split("");
+  console.log(arr_word);
+  for (let i = 0; i < arr_word.length; i++) {
+    let node = document.createElement("span");
+    let textnode = document.createTextNode("_");
+    let spacenode = document.createTextNode("  ");
+    arr_word[i] != " "
+      ? node.appendChild(textnode)
+      : node.appendChild(spacenode);
+    word_container.appendChild(node);
+  }
+};
+
+const closeModal = () => {
+  if (modal.classList.contains("modal-close")) {
+    modal.classList.remove("modal-close");
+    modal.classList.add("modal-open");
+  } else {
+    modal.classList.remove("modal-open");
+    modal.classList.add("modal-close");
+  }
 };
 
 button.addEventListener("click", gameView);
 
-const createLines = (leters) => {
-  for (let i = 1; i <= letters.length; i++) {
-    console.log(i);
-  }
-};
+close.addEventListener("click", closeModal);

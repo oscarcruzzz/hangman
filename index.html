@@ -6,6 +6,13 @@
     <title>HANGMAN | HOME</title>
   </head>
   <body>
+    <div id="help-container" class="modal-close">
+      <div class="container">
+        <div class="help-title">help</div>
+        <div class="help-text" id="help-text"></div>
+        <div class="help-button" id="help-button">close</div>
+      </div>
+    </div>
     <div class="top-container" id="top-container">
       <a href="#">
         <img src="./public/icons/github.svg" alt="GitHub" /><span
@@ -90,5 +97,20 @@
         <button id="button">Play</button>
       </div>
     </div>
+    <script>
+      const handleWrite = (id) => {
+        console.log(id);
+      };
+      const openModal = () => {
+        modal = document.getElementById("help-container");
+        if (modal.classList.contains("modal-close")) {
+          modal.classList.remove("modal-close");
+          modal.classList.add("modal-open");
+        } else {
+          modal.classList.remove("modal-open");
+          modal.classList.add("modal-close");
+        }
+      };
+    </script>
   </body>
 </html>
