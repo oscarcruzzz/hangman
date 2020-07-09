@@ -98,7 +98,7 @@ button
 .top-container
     display: flex 
     justify-content: flex-end
-    padding: 45px
+    padding: 45px 45px 0 45px
     a, >span
         background-color main-light
         margin: 0 10px
@@ -168,17 +168,34 @@ button
             background-color orange
             display: grid
             grid-template-rows: 1fr 1fr
-            .word-container
-                grid-row: 1/2            
+            #word-container
+                grid-row: 1/2
+                display: flex
+                flex-wrap: wrap
+                span
+                    color: main-light
+                    font-weight: bold
+                    font-size: 200px
+                    margin: 5px 20px
+                    line-height: 80px
             .letters-container
                 grid-row: 2/3
                 background-color blue
+                padding-top: 45px
+                // display: flex
+                // align-items: space-between
                 span
                     color: main-light
                     font-size: 70px
                     padding: 5px
                     margin: 5px 10px
                     cursor pointer
+            .score
+                display: flex
+                justify-content: flex-end
+                padding-right: 40px
+                //text-align: right
+                
 
 
 

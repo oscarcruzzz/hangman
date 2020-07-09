@@ -16,3 +16,61 @@ main-dark = #151515
 *
     list-style none
     text-decoration: none
+
+.modal-open
+    display: flex !important
+
+.modal-close
+    display none !important
+
+.game-view
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
+
+#help-container
+    position: fixed
+    background-color rgba(11,13,6, .8)
+    width 100%
+    height 100%
+    z-index: 1000
+    display: flex
+    justify-content: center
+    align-items: center
+    .container
+        width: 500px
+        height 350px
+        background-color main-light
+        border-radius 15px
+        z-index: 1000
+        display: flex
+        flex-direction: column
+        padding: 30px        
+        .help-title
+            font-size: 2em
+            color main-dark
+            text-transform: uppercase
+            margin 0 auto
+            font-weight: bold
+        .help-button
+            margin: auto auto 0 auto
+            background-color main-dark
+            color main-light
+            padding 10px 25px
+            text-transform: uppercase
+            font-size: 1.2em
+            cursor pointer
+        .help-text
+            font-size: 1.2em
+            color main-dark
+            margin-top 25px
+            padding-top: 25px
+            border-top: solid 1px rgba(0,0,0,.2)
+            font-weight: normal
+            line-height: 30px
+            strong 
+                margin-right: 5px
